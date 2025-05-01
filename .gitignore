@@ -3,3 +3,5 @@ fraud.db
 venv/
 test_data.json
 fraud.db 
+generate_erd.py
+fastapi_erd.png

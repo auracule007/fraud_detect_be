@@ -19,13 +19,27 @@ app = FastAPI(
     openapi_url=f"{settings.API_PREFIX}/openapi.json"
 )
 
+
+ALLOWED_ORIGINS = [
+    "https://frauddetection-woad.vercel.app",
+    "http://localhost:5173",  
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "PATCH","DELETE","OPTIONS"],
     allow_headers=["*"],
 )
+
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 def get_db():
     db = SessionLocal()
