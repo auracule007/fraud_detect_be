@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: fraud-detection-app
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app.main:app --worker-class uvicorn.workers.UvicornWorker
+    

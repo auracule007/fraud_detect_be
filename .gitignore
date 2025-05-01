@@ -1,0 +1,5 @@
+.env
+fraud.db
+venv/
+test_data.json
+fraud.db 
